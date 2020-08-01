@@ -142,6 +142,7 @@ if __name__ == '__main__':
     tweets = api.user_timeline(screen_name="realDonaldTrump", count=200)
 
     df = tweet_analyzer.tweets_to_data_frame(tweets)
+    # adding sentimental analysis
     df['sentiment'] = np.array(
         [tweet_analyzer.analyze_sentiment(tweet) for tweet in df['tweets']])
 
